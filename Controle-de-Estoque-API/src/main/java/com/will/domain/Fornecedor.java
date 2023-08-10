@@ -8,7 +8,6 @@ import java.util.Objects;
 import java.util.Set;
 import java.util.UUID;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.will.domain.enums.TipoFornecedor;
 
 import jakarta.persistence.CascadeType;
@@ -20,6 +19,7 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 
 @Entity
@@ -34,13 +34,14 @@ public class Fornecedor implements Serializable {
 	private String email;
 	private String cpfOuCnpj;
 	private Integer tipo;
-	@JsonIgnore
-	private String senha;
 	@OneToMany(mappedBy = "fornecedor", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private List<Endereco> enderecos = new ArrayList<>();
 	@ElementCollection(fetch = FetchType.EAGER)
 	@CollectionTable(name = "TELEFONE")
 	private Set<String> telefones = new HashSet<>();
+
+	@ManyToMany(mappedBy="fornecedores")
+	private List<Produto> produtos = new ArrayList<>();
 
 	public Fornecedor() {
 	}
@@ -52,7 +53,6 @@ public class Fornecedor implements Serializable {
 		this.email = email;
 		this.cpfOuCnpj = cpfOuCnpj;
 		this.tipo = (tipo == null) ? null : tipo.getCod();
-		this.senha = senha;
 	}
 
 	public UUID getId() {
@@ -95,14 +95,6 @@ public class Fornecedor implements Serializable {
 		this.tipo = tipo.getCod();
 	}
 
-	public String getSenha() {
-		return senha;
-	}
-
-	public void setSenha(String senha) {
-		this.senha = senha;
-	}
-
 	public List<Endereco> getEnderecos() {
 		return enderecos;
 	}
@@ -117,6 +109,14 @@ public class Fornecedor implements Serializable {
 
 	public void setTelefones(Set<String> telefones) {
 		this.telefones = telefones;
+	}
+
+	public List<Produto> getProdutos() {
+		return produtos;
+	}
+
+	public void setProdutos(List<Produto> produtos) {
+		this.produtos = produtos;
 	}
 
 	@Override

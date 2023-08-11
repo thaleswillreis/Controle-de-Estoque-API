@@ -1,6 +1,6 @@
 package com.will.domain.enums;
 
-public enum TipoFornecedor {
+public enum TipoPessoa {
 
 	PESSOAFISICA(1, "Pessoa Física"),
 	PESSOAJURIDICA(2, "Pessoa Jurídica");
@@ -8,7 +8,7 @@ public enum TipoFornecedor {
 	private int cod;
 	private String descricao;
 
-	private TipoFornecedor(int cod, String descricao) {
+	private TipoPessoa(int cod, String descricao) {
 		this.cod = cod;
 		this.descricao = descricao;
 	}
@@ -21,12 +21,12 @@ public enum TipoFornecedor {
 		return descricao;
 	}
 
-	public static TipoFornecedor toEnum(Integer cod) {
+	public static TipoPessoa toEnum(Integer cod) {
 
 		if (cod == null) {
 			return null;
 		}
-		for (TipoFornecedor x : TipoFornecedor.values()) {
+		for (TipoPessoa x : TipoPessoa.values()) {
 			if (cod.equals(x.getCod())) {
 				return x;
 			}

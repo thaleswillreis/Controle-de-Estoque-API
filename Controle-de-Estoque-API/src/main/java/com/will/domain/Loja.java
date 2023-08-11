@@ -18,42 +18,38 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 
 @Entity
-public class Fornecedor implements Serializable {
+public class Loja implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	@Column(unique=true)
-	private String fornecedor;
-	private String emailFornecedor;
+	private String loja;
+	private String emailLoja;
 	private String cpfOuCnpj;
 	private Integer tipo;
-	private String nomeContatoFornecedor;
-	@OneToMany(mappedBy = "fornecedor", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	private String nomeContatoLoja;
+	@OneToMany(mappedBy = "loja", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private List<Endereco> enderecos = new ArrayList<>();
 	@ElementCollection(fetch = FetchType.EAGER)
 	@CollectionTable(name = "TELEFONE")
 	private Set<String> telefones = new HashSet<>();
 
-	@ManyToMany(mappedBy="fornecedores")
-	private List<Produto> produtos = new ArrayList<>();
-
-	public Fornecedor() {
+	public Loja() {
 	}
 
-	public Fornecedor(Integer id, String fornecedor, String emailFornecedor, String cpfOuCnpj, TipoPessoa tipo, String nomeContatoFornecedor) {
+	public Loja(Integer id, String loja, String emailLoja, String cpfOuCnpj, TipoPessoa tipo, String nomeContatoLoja) {
 		super();
 		this.id = id;
-		this.fornecedor = fornecedor;
-		this.emailFornecedor = emailFornecedor;
+		this.loja = loja;
+		this.emailLoja = emailLoja;
 		this.cpfOuCnpj = cpfOuCnpj;
 		this.tipo = (tipo == null) ? null : tipo.getCod();
-		this.nomeContatoFornecedor = nomeContatoFornecedor;
+		this.nomeContatoLoja = nomeContatoLoja;
 	}
 
 	public Integer getId() {
@@ -64,20 +60,20 @@ public class Fornecedor implements Serializable {
 		this.id = id;
 	}
 
-	public String getFornecedor() {
-		return fornecedor;
+	public String getLoja() {
+		return loja;
 	}
 
-	public void setFornecedor(String fornecedor) {
-		this.fornecedor = fornecedor;
+	public void setLoja(String loja) {
+		this.loja = loja;
 	}
 
-	public String getEmailFornecedor() {
-		return emailFornecedor;
+	public String getEmailLoja() {
+		return emailLoja;
 	}
 
-	public void setEmailFornecedor(String emailFornecedor) {
-		this.emailFornecedor = emailFornecedor;
+	public void setEmailLoja(String emailLoja) {
+		this.emailLoja = emailLoja;
 	}
 
 	public String getCpfOuCnpj() {
@@ -88,20 +84,20 @@ public class Fornecedor implements Serializable {
 		this.cpfOuCnpj = cpfOuCnpj;
 	}
 
-	public TipoPessoa getTipo() {
-		return TipoPessoa.toEnum(tipo);
+	public Integer getTipo() {
+		return tipo;
 	}
 
-	public void setTipo(TipoPessoa tipo) {
-		this.tipo = tipo.getCod();
+	public void setTipo(Integer tipo) {
+		this.tipo = tipo;
 	}
 
-	public String getNomeContatoFornecedor() {
-		return nomeContatoFornecedor;
+	public String getNomeContatoLoja() {
+		return nomeContatoLoja;
 	}
 
-	public void setNomeContatoFornecedor(String nomeContatoFornecedor) {
-		this.nomeContatoFornecedor = nomeContatoFornecedor;
+	public void setNomeContatoLoja(String nomeContatoLoja) {
+		this.nomeContatoLoja = nomeContatoLoja;
 	}
 
 	public List<Endereco> getEnderecos() {
@@ -120,19 +116,11 @@ public class Fornecedor implements Serializable {
 		this.telefones = telefones;
 	}
 
-	public List<Produto> getProdutos() {
-		return produtos;
-	}
-
-	public void setProdutos(List<Produto> produtos) {
-		this.produtos = produtos;
-	}
-
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
 	}
-	
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -141,7 +129,7 @@ public class Fornecedor implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Fornecedor other = (Fornecedor) obj;
+		Loja other = (Loja) obj;
 		return Objects.equals(id, other.id);
 	}
 }

@@ -23,7 +23,10 @@ public class Produto implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String codigoDeBarras;
-	private String nome;
+	private String produto;
+	private String descricao;
+	private Double pesoProduto;
+	private Boolean produtoControlado;
 	private Double preco;
 	@JsonIgnore
 	@ManyToMany
@@ -42,11 +45,14 @@ public class Produto implements Serializable {
 	public Produto() {
 	}
 
-	public Produto(Integer id, String codigoDeBarras, String nome, Double preco) {
+	public Produto(Integer id, String codigoDeBarras, String produto, String descricao, Double pesoProduto, Boolean produtoControlado, Double preco) {
 		super();
 		this.id = id;
 		this.codigoDeBarras = codigoDeBarras;
-		this.nome = nome;
+		this.produto = produto;
+		this.descricao = descricao;
+		this.pesoProduto = pesoProduto;
+		this.produtoControlado = produtoControlado;
 		this.preco = preco;
 	}
 
@@ -66,12 +72,36 @@ public class Produto implements Serializable {
 		this.codigoDeBarras = codigoDeBarras;
 	}
 
-	public String getNome() {
-		return nome;
+	public String getProduto() {
+		return produto;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setProduto(String produto) {
+		this.produto = produto;
+	}
+
+	public String getDescricao() {
+		return descricao;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+
+	public Double getPesoProduto() {
+		return pesoProduto;
+	}
+
+	public void setPesoProduto(Double pesoProduto) {
+		this.pesoProduto = pesoProduto;
+	}
+
+	public Boolean getProdutoControlado() {
+		return produtoControlado;
+	}
+
+	public void setProdutoControlado(Boolean produtoControlado) {
+		this.produtoControlado = produtoControlado;
 	}
 
 	public Double getPreco() {

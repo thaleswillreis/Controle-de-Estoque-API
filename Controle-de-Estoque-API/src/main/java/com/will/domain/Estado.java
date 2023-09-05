@@ -19,8 +19,8 @@ public class Estado implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
-	private String nome;
+	private Integer codEstado;
+	private String estado;
 
 	@JsonIgnore
 	@OneToMany(mappedBy = "estado")
@@ -29,26 +29,26 @@ public class Estado implements Serializable {
 	public Estado() {
 	}
 
-	public Estado(Integer id, String nome) {
+	public Estado(Integer codEstado, String estado) {
 		super();
-		this.id = id;
-		this.nome = nome;
+		this.codEstado = codEstado;
+		this.estado = estado;
 	}
 
-	public Integer getId() {
-		return id;
+	public Integer getCodEstado() {
+		return codEstado;
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
+	public void setCodEstado(Integer codEstado) {
+		this.codEstado = codEstado;
 	}
 
-	public String getNome() {
-		return nome;
+	public String getEstado() {
+		return estado;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setEstado(String estado) {
+		this.estado = estado;
 	}
 
 	public List<Cidade> getCidades() {
@@ -61,7 +61,7 @@ public class Estado implements Serializable {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(id);
+		return Objects.hash(codEstado);
 	}
 
 	@Override
@@ -73,6 +73,6 @@ public class Estado implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Estado other = (Estado) obj;
-		return Objects.equals(id, other.id);
+		return Objects.equals(codEstado, other.codEstado);
 	}
 }

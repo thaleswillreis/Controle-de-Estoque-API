@@ -18,7 +18,7 @@ public class Endereco implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
+	private Integer codEndereco;
 	private String logradouro;
 	private String numero;
 	private String complemento;
@@ -43,10 +43,10 @@ public class Endereco implements Serializable {
 	public Endereco() {
 	}
 
-	public Endereco(Integer id, String logradouro, String numero, String complemento, String bairro, String cep,
+	public Endereco(Integer codEndereco, String logradouro, String numero, String complemento, String bairro, String cep,
 			Fornecedor fornecedor, Transportadora transportadora, Loja loja, Cidade cidade) {
 		super();
-		this.id = id;
+		this.codEndereco = codEndereco;
 		this.logradouro = logradouro;
 		this.numero = numero;
 		this.complemento = complemento;
@@ -58,12 +58,12 @@ public class Endereco implements Serializable {
 		this.cidade = cidade;
 	}
 
-	public Integer getId() {
-		return id;
+	public Integer getCodEndereco() {
+		return codEndereco;
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
+	public void setCodEndereco(Integer codEndereco) {
+		this.codEndereco = codEndereco;
 	}
 
 	public String getLogradouro() {
@@ -140,7 +140,7 @@ public class Endereco implements Serializable {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(id);
+		return Objects.hash(codEndereco);
 	}
 
 	@Override
@@ -152,6 +152,6 @@ public class Endereco implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Endereco other = (Endereco) obj;
-		return Objects.equals(id, other.id);
+		return Objects.equals(codEndereco, other.codEndereco);
 	}
 }

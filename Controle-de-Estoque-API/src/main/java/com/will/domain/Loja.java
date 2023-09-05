@@ -26,7 +26,7 @@ public class Loja implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
+	private Integer codLoja;
 	@Column(unique=true)
 	private String loja;
 	private String emailLoja;
@@ -42,9 +42,9 @@ public class Loja implements Serializable {
 	public Loja() {
 	}
 
-	public Loja(Integer id, String loja, String emailLoja, String cpfOuCnpj, TipoPessoa tipo, String nomeContatoLoja) {
+	public Loja(Integer codLoja, String loja, String emailLoja, String cpfOuCnpj, TipoPessoa tipo, String nomeContatoLoja) {
 		super();
-		this.id = id;
+		this.codLoja = codLoja;
 		this.loja = loja;
 		this.emailLoja = emailLoja;
 		this.cpfOuCnpj = cpfOuCnpj;
@@ -52,12 +52,12 @@ public class Loja implements Serializable {
 		this.nomeContatoLoja = nomeContatoLoja;
 	}
 
-	public Integer getId() {
-		return id;
+	public Integer getCodLoja() {
+		return codLoja;
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
+	public void setCodLoja(Integer codLoja) {
+		this.codLoja = codLoja;
 	}
 
 	public String getLoja() {
@@ -118,7 +118,7 @@ public class Loja implements Serializable {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(id);
+		return Objects.hash(codLoja);
 	}
 
 	@Override
@@ -130,6 +130,6 @@ public class Loja implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Loja other = (Loja) obj;
-		return Objects.equals(id, other.id);
+		return Objects.equals(codLoja, other.codLoja);
 	}
 }

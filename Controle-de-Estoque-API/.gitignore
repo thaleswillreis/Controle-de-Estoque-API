@@ -3,6 +3,9 @@ target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
+!**/src/main/java/META-INF/
+META-INF/
+.metadata/
 
 ### STS ###
 .apt_generated

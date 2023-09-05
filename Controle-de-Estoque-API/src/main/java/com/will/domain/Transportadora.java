@@ -26,7 +26,7 @@ public class Transportadora implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
+	private Integer codTransportadora;
 	@Column(unique=true)
 	private String transportadora;
 	private String emailTransportadora;
@@ -42,9 +42,9 @@ public class Transportadora implements Serializable {
 	public Transportadora() {
 	}
 
-	public Transportadora(Integer id, String transportadora, String emailTransportadora, String cpfOuCnpj, TipoPessoa tipo, String nomeContatoTransportadora) {
+	public Transportadora(Integer codTransportadora, String transportadora, String emailTransportadora, String cpfOuCnpj, TipoPessoa tipo, String nomeContatoTransportadora) {
 		super();
-		this.id = id;
+		this.codTransportadora = codTransportadora;
 		this.transportadora = transportadora;
 		this.emailTransportadora = emailTransportadora;
 		this.cpfOuCnpj = cpfOuCnpj;
@@ -52,12 +52,12 @@ public class Transportadora implements Serializable {
 		this.nomeContatoTransportadora = nomeContatoTransportadora;
 	}
 
-	public Integer getId() {
-		return id;
+	public Integer getCodTransportadora() {
+		return codTransportadora;
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
+	public void setCodTransportadora(Integer codTransportadora) {
+		this.codTransportadora = codTransportadora;
 	}
 
 	public String getTransportadora() {
@@ -118,7 +118,7 @@ public class Transportadora implements Serializable {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(id);
+		return Objects.hash(codTransportadora);
 	}
 	
 	@Override
@@ -130,6 +130,6 @@ public class Transportadora implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Transportadora other = (Transportadora) obj;
-		return Objects.equals(id, other.id);
+		return Objects.equals(codTransportadora, other.codTransportadora);
 	}
 }

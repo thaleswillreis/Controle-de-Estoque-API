@@ -27,7 +27,7 @@ public class Fornecedor implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer idFornecedor;
+	private Integer id;
 	@Column(unique=true)
 	private String fornecedor;
 	private String emailFornecedor;
@@ -46,9 +46,9 @@ public class Fornecedor implements Serializable {
 	public Fornecedor() {
 	}
 
-	public Fornecedor(Integer idFornecedor, String fornecedor, String emailFornecedor, String cpfOuCnpj, TipoPessoa tipo, String nomeContatoFornecedor) {
+	public Fornecedor(Integer id, String fornecedor, String emailFornecedor, String cpfOuCnpj, TipoPessoa tipo, String nomeContatoFornecedor) {
 		super();
-		this.idFornecedor = idFornecedor;
+		this.id = id;
 		this.fornecedor = fornecedor;
 		this.emailFornecedor = emailFornecedor;
 		this.cpfOuCnpj = cpfOuCnpj;
@@ -56,12 +56,12 @@ public class Fornecedor implements Serializable {
 		this.nomeContatoFornecedor = nomeContatoFornecedor;
 	}
 
-	public Integer getIdFornecedor() {
-		return idFornecedor;
+	public Integer getId() {
+		return id;
 	}
 
-	public void setIdFornecedor(Integer idFornecedor) {
-		this.idFornecedor = idFornecedor;
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	public String getFornecedor() {
@@ -130,7 +130,7 @@ public class Fornecedor implements Serializable {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(idFornecedor);
+		return Objects.hash(id);
 	}
 	
 	@Override
@@ -142,6 +142,6 @@ public class Fornecedor implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Fornecedor other = (Fornecedor) obj;
-		return Objects.equals(idFornecedor, other.idFornecedor);
+		return Objects.equals(id, other.id);
 	}
 }

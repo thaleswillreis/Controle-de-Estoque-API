@@ -16,8 +16,8 @@ public class Cidade implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer idCidade;
-	private String cidade;
+	private Integer id;
+	private String nome;
 
 	@ManyToOne
 	@JoinColumn(name = "estado_id")
@@ -26,27 +26,27 @@ public class Cidade implements Serializable {
 	public Cidade() {
 	}
 
-	public Cidade(Integer idCidade, String cidade, Estado estado) {
+	public Cidade(Integer id, String nome, Estado estado) {
 		super();
-		this.idCidade = idCidade;
-		this.cidade = cidade;
+		this.id = id;
+		this.nome = nome;
 		this.estado = estado;
 	}
 
-	public Integer getIdCidade() {
-		return idCidade;
+	public Integer getId() {
+		return id;
 	}
 
-	public void setIdCidade(Integer idCidade) {
-		this.idCidade = idCidade;
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
-	public String getCidade() {
-		return cidade;
+	public String getNome() {
+		return nome;
 	}
 
-	public void setCidade(String cidade) {
-		this.cidade = cidade;
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
 	public Estado getEstado() {
@@ -59,7 +59,7 @@ public class Cidade implements Serializable {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(idCidade);
+		return Objects.hash(id);
 	}
 
 	@Override
@@ -71,6 +71,6 @@ public class Cidade implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Cidade other = (Cidade) obj;
-		return Objects.equals(idCidade, other.idCidade);
+		return Objects.equals(id, other.id);
 	}
 }

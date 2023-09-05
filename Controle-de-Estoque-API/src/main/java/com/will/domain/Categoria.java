@@ -17,8 +17,8 @@ public class Categoria implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer idCategoria;
-	private String categoria;
+	private Integer id;
+	private String nome;
 	
 	@ManyToMany(mappedBy="categorias")
 	private List<Produto> produtos = new ArrayList<>();
@@ -26,26 +26,26 @@ public class Categoria implements Serializable {
 	public Categoria() {
 	}
 
-	public Categoria(Integer idCategoria, String categoria) {
+	public Categoria(Integer id, String nome) {
 		super();
-		this.idCategoria = idCategoria;
-		this.categoria = categoria;
+		this.id = id;
+		this.nome = nome;
 	}
 
-	public Integer getIdCategoria() {
-		return idCategoria;
+	public Integer getId() {
+		return id;
 	}
 
-	public void setIdCategoria(Integer idCategoria) {
-		this.idCategoria = idCategoria;
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
-	public String getCategoria() {
-		return categoria;
+	public String getNome() {
+		return nome;
 	}
 
-	public void setCategoria(String categoria) {
-		this.categoria = categoria;
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
 	public List<Produto> getProdutos() {
@@ -55,10 +55,10 @@ public class Categoria implements Serializable {
 	public void setProdutos(List<Produto> produtos) {
 		this.produtos = produtos;
 	}
-
+	
 	@Override
 	public int hashCode() {
-		return Objects.hash(idCategoria);
+		return Objects.hash(id);
 	}
 
 	@Override
@@ -70,6 +70,7 @@ public class Categoria implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Categoria other = (Categoria) obj;
-		return Objects.equals(idCategoria, other.idCategoria);
+		return Objects.equals(id, other.id);
 	}
+
 }

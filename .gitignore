@@ -1,36 +1,82 @@
-HELP.md
-target/
+# Arquivos e diretórios específicos do Maven
+/target/
 !.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**/target/
-!**/src/test/**/target/
-!**/src/main/java/META-INF/
-META-INF/
-.metadata/
 
-### STS ###
-.apt_generated
+# Diretório específico do IntelliJ IDEA
+.idea/
+
+# Diretório específico do Eclipse
 .classpath
-.factorypath
 .project
-.settings
+.settings/
+
+# Diretório específico do Spring
 .springBeans
-.sts4-cache
 
-### IntelliJ IDEA ###
-.idea
-*.iws
+# Logs e arquivos temporários
+*.log
+*.log.*
+*.tmp
+
+# Arquivos de compilação
+*.class
+
+# Arquivos de compilação do Maven
+target/
+
+# Arquivos gerados pelo IDE
+/.metadata/
 *.iml
-*.ipr
+/.classpath
+/.project
 
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
-build/
-!**/src/main/**/build/
-!**/src/test/**/build/
+# Diretórios de saída do Eclipse
+/bin/
+/bin-debug/
+/classes/
+/gen/
+/out/
+/out-timestamp/
+/run/
 
-### VS Code ###
-.vscode/
+# Arquivos gerados pelo Spring Boot DevTools
+restart.txt
+
+# Logs do Spring Boot
+logs/
+log/
+
+# Arquivos de configuração do banco de dados
+application.properties
+application.yml
+
+# Arquivos de configuração específicos do IDE (exemplo: IntelliJ IDEA)
+.idea/
+
+# Arquivos específicos do PostgreSQL
+*.backup
+*.dump
+
+# Cache do Maven
+/.m2/
+
+# Dependências do Maven (você pode personalizar esta parte de acordo com sua estrutura de projeto)
+# Deixe comentado por padrão, descomente conforme necessário
+# /lib/
+# /src/main/webapp/WEB-INF/lib/
+
+# Dependências específicas de IDE (você pode personalizar esta parte de acordo com sua IDE)
+# Deixe comentado por padrão, descomente conforme necessário
+# /.classpath
+# /.project
+
+# Configurações do Eclipse
+# Deixe comentado por padrão, descomente conforme necessário
+# /.metadata/
+# /.settings/
+
+# Arquivos Sonarlint
+.sonarlint/
+
+# Ignorar o diretório META-INF
+Controle-de-Estoque-API/src/main/java/META-INF/

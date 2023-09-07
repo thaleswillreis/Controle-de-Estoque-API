@@ -43,6 +43,9 @@ public class Transportadora implements Serializable {
 	@JsonManagedReference
 	@OneToMany(mappedBy = "transportadora", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private List<Entrada> entradas = new ArrayList<>();
+	@JsonManagedReference
+	@OneToMany(mappedBy = "transportadora", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	private List<Saida> saidas = new ArrayList<>();
 
 	public Transportadora() {
 	}
@@ -119,6 +122,22 @@ public class Transportadora implements Serializable {
 
 	public void setTelefones(Set<String> telefones) {
 		this.telefones = telefones;
+	}
+
+	public List<Entrada> getEntradas() {
+		return entradas;
+	}
+
+	public void setEntradas(List<Entrada> entradas) {
+		this.entradas = entradas;
+	}
+
+	public List<Saida> getSaidas() {
+		return saidas;
+	}
+
+	public void setSaidas(List<Saida> saidas) {
+		this.saidas = saidas;
 	}
 
 	@Override

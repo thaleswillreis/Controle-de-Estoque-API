@@ -27,6 +27,7 @@ public class Fornecedor implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "cod_fornecedor")
 	private Integer codFornecedor;
 	@Column(unique=true)
 	private String fornecedor;

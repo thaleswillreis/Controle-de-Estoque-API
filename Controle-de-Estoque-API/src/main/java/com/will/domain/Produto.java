@@ -7,6 +7,7 @@ import java.util.Objects;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -21,6 +22,7 @@ public class Produto implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "cod_produto")
 	private Integer codProduto;
 	private String codigoDeBarras;
 	private String produto;
@@ -31,14 +33,14 @@ public class Produto implements Serializable {
 	@JsonIgnore
 	@ManyToMany
 	@JoinTable(name = "PRODUTO_CATEGORIA", 
-		joinColumns = @JoinColumn(name = "produto_id"), 
-		inverseJoinColumns = @JoinColumn(name = "categoria_id")
+		joinColumns = @JoinColumn(name = "cod_produto"), 
+		inverseJoinColumns = @JoinColumn(name = "cod_categoria")
 	)
 	private List<Categoria> categorias = new ArrayList<>();
 	@ManyToMany
 	@JoinTable(name = "PRODUTO_FORNECEDOR", 
-			joinColumns = @JoinColumn(name = "produto_id"), 
-			inverseJoinColumns = @JoinColumn(name = "fornecedor_id")
+			joinColumns = @JoinColumn(name = "cod_produto"), 
+			inverseJoinColumns = @JoinColumn(name = "cod_fornecedor")
 	)
 	private List<Fornecedor> fornecedores = new ArrayList<>();
 

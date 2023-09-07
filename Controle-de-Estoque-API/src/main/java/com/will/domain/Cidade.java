@@ -3,6 +3,7 @@ package com.will.domain;
 import java.io.Serializable;
 import java.util.Objects;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -16,11 +17,12 @@ public class Cidade implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "cod_cidade")
 	private Integer codCidade;
 	private String cidade;
 
 	@ManyToOne
-	@JoinColumn(name = "estado_id")
+	@JoinColumn(name = "cod_estado")
 	private Estado estado;
 
 	public Cidade() {

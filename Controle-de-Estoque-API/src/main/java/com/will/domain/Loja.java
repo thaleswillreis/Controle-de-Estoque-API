@@ -26,6 +26,7 @@ public class Loja implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "cod_loja")
 	private Integer codLoja;
 	@Column(unique=true)
 	private String loja;

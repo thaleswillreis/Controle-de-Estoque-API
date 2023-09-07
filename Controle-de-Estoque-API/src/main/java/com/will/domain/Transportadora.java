@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.will.domain.enums.TipoPessoa;
 
 import jakarta.persistence.CascadeType;
@@ -26,6 +27,7 @@ public class Transportadora implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "cod_transportadora")
 	private Integer codTransportadora;
 	@Column(unique=true)
 	private String transportadora;
@@ -38,6 +40,9 @@ public class Transportadora implements Serializable {
 	@ElementCollection(fetch = FetchType.EAGER)
 	@CollectionTable(name = "TELEFONE")
 	private Set<String> telefones = new HashSet<>();
+	@JsonManagedReference
+	@OneToMany(mappedBy = "transportadora", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	private List<Entrada> entradas = new ArrayList<>();
 
 	public Transportadora() {
 	}

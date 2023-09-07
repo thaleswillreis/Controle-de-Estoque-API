@@ -5,6 +5,7 @@ import java.util.Objects;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -18,6 +19,7 @@ public class Endereco implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "cod_endereco")
 	private Integer codEndereco;
 	private String logradouro;
 	private String numero;
@@ -26,18 +28,18 @@ public class Endereco implements Serializable {
 	private String cep;
 	@JsonIgnore
 	@ManyToOne
-	@JoinColumn(name = "fornecedor_id")
+	@JoinColumn(name = "cod_fornecedor")
 	private Fornecedor fornecedor;
 	@JsonIgnore
 	@ManyToOne
-	@JoinColumn(name = "transportadora_id")
+	@JoinColumn(name = "cod_transportadora")
 	private Transportadora transportadora;
 	@ManyToOne
-	@JoinColumn(name = "cidade_id")
+	@JoinColumn(name = "cod_cidade")
 	private Cidade cidade;
 	@JsonIgnore
 	@ManyToOne
-	@JoinColumn(name = "loja_id")
+	@JoinColumn(name = "cod_loja")
 	private Loja loja;
 
 	public Endereco() {
